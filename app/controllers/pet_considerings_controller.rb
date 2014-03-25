@@ -1,3 +1,6 @@
+# This controller controls a pet considering, which is akin to a
+# line item in the depot app
+
 class PetConsideringsController < ApplicationController
   include CurrentConsidering
   before_action :set_considering, only: [:create]
