@@ -32,7 +32,7 @@ class FosterParentsController < ApplicationController
     end
     respond_to do |format|
       if @foster_parent.save
-        format.html { redirect_to @foster_parent, notice: 'Foster parent was successfully created.' }
+        format.html { redirect_to animal_display_path, notice: 'Foster parent was successfully created.' }
         format.json { render action: 'show', status: :created, location: @foster_parent }
       else
         format.html { render action: 'new' }
