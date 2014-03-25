@@ -1,31 +1,23 @@
 class AnimalDisplayController < ApplicationController
   include CurrentConsidering
   before_action :set_considering
+
+    helper_method :sort_column, :sort_direction
+  
   def index
-    @pets = Pet.all
+    @pets = Pet.order(sort_column + " " + sort_direction)
+  end
+  
+  # ...
+  
+  private
+  
+  def sort_column
+    Pet.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
-  def sort_by_name
-    @pets = Pet.order(:name)
-    render_index
-  end
-
-  def sort_by_age
-    @pets = Pet.order(:age)
-    render_index
-  end
-
-  def sort_by_name_reverse
-    @pets = Pet.order(:name).reverse
-    render_index
-  end
-
-  def sort_by_age_reverse
-    @pets = Pet.order(:age).reverse
-    render_index
-  end
-
-  def render_index
-    render :action => "index"
-  end
 end

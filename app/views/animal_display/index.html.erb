@@ -1,9 +1,9 @@
 <% if notice %>
 <p id="notice"><%= notice %></p> <% end %>
-<%= link_to "Sort By Name (A-Z)", sort_by_name_path %>
-<%= link_to "Sort By Name (Z-A)", sort_by_name_reverse_path %>
-<%= link_to "Sort By Age (Ascending)", sort_by_age_path %>
-<%= link_to "Sort By Age (Descending)", sort_by_age_reverse_path %>
+<tr>
+  <th><%= sortable "name" %></th>
+  <th><%= sortable "age" %></th>
+</tr>
 
 <% @pets.each do |pet| %>
   <% if pet.status == "fostered" %>
