@@ -1,10 +1,11 @@
 <% if notice %>
 <p id="notice"><%= notice %></p> <% end %>
-<tr>
+<table>
+<tr class="pretty">
   <th><%= sortable "name" %></th>
   <th><%= sortable "age" %></th>
 </tr> 
-
+</table>
 <% @pets.each do |pet| %>
   <% if pet.status == "fostered" %>
     <% next %>
