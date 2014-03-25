@@ -12,15 +12,15 @@
 </div>
 <div id="columns">
 	<div id="side">
+		<ul>
+			<li><a href="<%= root_path %>">Home</a></li>
+			<li><a href="/pets">Pet Management</a></li>
+		</ul>
 		<% if @considering %>
 			<%= hidden_div_if(@considering.pet_considerings.empty?, id: 'considering') do %>
 				<%= render(@considering) %>
 			<% end %>
 		<% end %>
-		<ul>
-			<li><a href="<%= root_path %>">Home</a></li>
-			<li><a href="/pets">Pet Management</a></li>
-		</ul>
 	</div>
 	<div id="main">
 		<%= yield %>
