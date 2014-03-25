@@ -1,3 +1,6 @@
+# This controller controls an instance of a foster parent as is defined in the model
+# This controller should not usually be able to be viewed from the app
+
 class FosterParentsController < ApplicationController
   before_action :set_foster_parent, only: [:show, :edit, :update, :destroy]
 
