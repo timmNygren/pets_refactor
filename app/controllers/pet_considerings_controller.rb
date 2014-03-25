@@ -27,7 +27,7 @@ class PetConsideringsController < ApplicationController
   # POST /pet_considerings.json
   def create
     pet = Pet.find(params[:pet_id])
-    @pet_considering = @considering.pet_considerings.build(pet: pet)
+    @pet_considering = @considering.add_pet_if_not_exists(pet.id)
 
     respond_to do |format|
       if @pet_considering.save
