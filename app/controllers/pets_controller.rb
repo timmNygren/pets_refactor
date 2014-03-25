@@ -1,3 +1,8 @@
+# This is the controller for all the pets, much like the Products controller
+# in the depot app.
+
+# This is one of the main classes used in the display of all the animals
+
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
