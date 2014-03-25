@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pets</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+<div id="banner">
+	<%= @page_title || "Pet Foster Care" %>
+</div>
+<div id="columns">
+	<div id="side">
+		<% if @considering %>
+			<%= hidden_div_if(@considering.pet_considerings.empty?, id: 'considering') do %>
+				<%= render(@considering) %>
+			<% end %>
+		<% end %>
+		<ul>
+			<li><a href="<%= root_path %>">Home</a></li>
+			<li><a href="/pets">Pet Management</a></li>
+		</ul>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+</div>
+</body>
+</html>
