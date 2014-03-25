@@ -1,3 +1,6 @@
+# Controller that controls the current considerings
+# This is akin to the cart class of the depot app
+
 class ConsideringsController < ApplicationController
   before_action :set_considering, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_considering
