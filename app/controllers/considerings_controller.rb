@@ -2,6 +2,8 @@
 # This is akin to the cart class of the depot app
 
 class ConsideringsController < ApplicationController
+  
+  skip_before_action :authenticate_user!
   before_action :set_considering, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_considering
 

@@ -2,6 +2,8 @@
 
 class AnimalDisplayController < ApplicationController
 
+  skip_before_action :authenticate_user!
+  
   # Get the current considering, so it can be displayed
   include CurrentConsidering
 

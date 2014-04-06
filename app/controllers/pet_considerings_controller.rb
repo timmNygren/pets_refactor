@@ -3,6 +3,7 @@
 
 class PetConsideringsController < ApplicationController
   include CurrentConsidering
+  skip_before_action :authenticate_user!
   before_action :set_considering, only: [:create]
   before_action :set_pet_considering, only: [:show, :edit, :update, :destroy]
 
