@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
-  
+
   def ensure_admin
     if current_user.role != "Admin"
       redirect_to root_path, :notice => "You do not have permission to access this page"

@@ -15,8 +15,7 @@
 	<div id="side">
 		<ul>
 			<li><a href="<%= root_path %>">Home</a></li>
-			<% logger.debug "current_user: #{current_user.email}, role: #{current_user.role}" %>
-			<% if current_user && current_user.role == "Admin" %>
+			<% if current_user_is_admin %>
 				<li><a href="/pets">Pet Management</a></li>
 			<% end %>
 			<li>
