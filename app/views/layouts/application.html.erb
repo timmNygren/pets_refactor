@@ -15,7 +15,13 @@
 	<div id="side">
 		<ul>
 			<li><a href="<%= root_path %>">Home</a></li>
-			<li><a href="/pets">Pet Management</a></li>
+			<% logger.debug "current_user: #{current_user.email}, role: #{current_user.role}" %>
+			<% if current_user && current_user.role == "Admin" %>
+				<li><a href="/pets">Pet Management</a></li>
+			<% end %>
+			<li>
+          		<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+        	</li>
 		</ul>
 		<% if @considering %>
 			<%= hidden_div_if(@considering.pet_considerings.empty?, id: 'considering') do %>

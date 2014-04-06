@@ -63,3 +63,11 @@ Pet.create!(name: "Azlan",
             image_url: "Azlan.png",
             habits: "Making little meowing noises, messing with Gaspar",
             status: "available")
+
+User.create!(email: "admin@pets.com",
+             password: "secured1",
+             role: "Admin")
+
+User.create!(email: "user@pets.com",
+             password: "password",
+             role: "User")
